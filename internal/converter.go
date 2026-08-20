@@ -44,7 +44,7 @@ func (c Convert) Process() {
 func (c Convert) transform(list []string, in, out string) {
 	for i, v := range list {
 		c.logger.Infof("%d of %d. %s -> %s", i+1, len(list), fmt.Sprintf("%s/%s", strings.TrimRight(in, "/"), v), fmt.Sprintf("%s/%s.mp3", strings.TrimRight(out, "/"), v[:strings.LastIndex(v, ".")]))
-		time.Sleep(time.Second * 2)
+		time.Sleep(time.Millisecond * 75)
 
 		if err := ffmpeg.Input(fmt.Sprintf("%s/%s", strings.TrimRight(in, "/"), v)).
 			Output(fmt.Sprintf("%s/%s.mp3", strings.TrimRight(out, "/"), v[:strings.LastIndex(v, ".")])).
